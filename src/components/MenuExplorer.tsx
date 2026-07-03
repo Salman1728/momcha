@@ -30,21 +30,23 @@ export function MenuExplorer() {
 
   return (
     <div className="mt-10">
-      {/* filter chips */}
-      <div className="no-scrollbar -mx-6 flex gap-2 overflow-x-auto px-6 pb-2 sm:flex-wrap sm:justify-center">
-        {[{ id: "all", title: "All" }, ...menu].map((s) => (
-          <button
-            key={s.id}
-            onClick={() => setActive(s.id)}
-            className={`shrink-0 rounded-full px-5 py-2 text-sm font-semibold transition ${
-              active === s.id
-                ? "bg-blue text-white shadow-soft"
-                : "bg-white text-muted shadow-soft hover:text-blue"
-            }`}
-          >
-            {s.title}
-          </button>
-        ))}
+      {/* filter chips in a pill tray, like the mockup */}
+      <div className="no-scrollbar -mx-6 overflow-x-auto px-6 sm:mx-auto sm:w-fit sm:overflow-visible sm:px-0">
+        <div className="flex w-max gap-1 rounded-full bg-white p-1.5 shadow-soft sm:w-auto sm:flex-wrap sm:justify-center">
+          {[{ id: "all", title: "All" }, ...menu].map((s) => (
+            <button
+              key={s.id}
+              onClick={() => setActive(s.id)}
+              className={`shrink-0 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ${
+                active === s.id
+                  ? "bg-blue text-white shadow-soft"
+                  : "text-muted hover:bg-blue-tint hover:text-blue"
+              }`}
+            >
+              {s.title}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* sections */}

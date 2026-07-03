@@ -14,13 +14,13 @@ export default function GalleryPage() {
     <div className="relative overflow-hidden">
       <DoodleField tone="text-blue/10" />
 
-      <div className="relative mx-auto max-w-6xl px-6 pb-8 pt-14">
+      <div className="relative mx-auto max-w-6xl px-6 pb-8 pt-32">
         <Reveal>
-          <h1 className="font-script text-center text-7xl font-bold text-blue">
+          <h1 className="font-script text-center text-7xl font-bold text-blue sm:text-8xl">
             Gallery 💙
           </h1>
-          <p className="mt-3 text-center text-muted">
-            Moments from the café — swap these tiles for real photos anytime.
+          <p className="mt-4 text-center text-muted">
+            Moments from the café — sips, smiles and everything in between.
           </p>
         </Reveal>
 

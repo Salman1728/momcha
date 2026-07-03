@@ -53,9 +53,9 @@ export default function ContactPage() {
     <div className="relative overflow-hidden">
       <DoodleField tone="text-blue/10" />
 
-      <div className="relative mx-auto max-w-6xl px-6 pb-8 pt-14">
+      <div className="relative mx-auto max-w-6xl px-6 pb-8 pt-32">
         <Reveal>
-          <h1 className="font-script text-center text-7xl font-bold text-blue">
+          <h1 className="font-script text-center text-7xl font-bold text-blue sm:text-8xl">
             Get In Touch
           </h1>
           <p className="mx-auto mt-4 max-w-md text-center text-muted">
@@ -93,20 +93,42 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-blue-soft to-blue-tint p-7 shadow-soft">
-                <p className="font-display text-xl font-bold text-ink">Find Us</p>
-                <p className="mt-2 text-[15px] text-muted">{site.address}</p>
-                <a
-                  href={site.directions}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-block rounded-full bg-blue px-6 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:scale-105"
-                >
-                  Get Directions
-                </a>
-                <svg viewBox="0 0 24 24" className="absolute -right-2 -top-2 h-24 w-24 text-blue/15" fill="currentColor" aria-hidden>
-                  <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 9.5A2.5 2.5 0 1 0 12 6a2.5 2.5 0 0 0 0 5.5z" />
+              <div className="map-grid relative overflow-hidden rounded-[2rem] bg-blue-tint shadow-soft">
+                {/* stylised roads */}
+                <svg viewBox="0 0 400 240" className="h-56 w-full" aria-hidden>
+                  <g stroke="#ffffff" strokeLinecap="round" fill="none">
+                    <path d="M-10 170 C 90 150, 150 190, 250 160 S 390 120, 420 140" strokeWidth="22" />
+                    <path d="M120 -10 C 130 60, 100 140, 150 250" strokeWidth="16" />
+                    <path d="M300 -10 C 280 80, 330 160, 290 250" strokeWidth="12" />
+                  </g>
+                  <g stroke="#cfe1ff" strokeWidth="3" strokeDasharray="8 10" fill="none">
+                    <path d="M-10 170 C 90 150, 150 190, 250 160 S 390 120, 420 140" />
+                  </g>
+                  {/* pin */}
+                  <g className="animate-floaty" style={{ transformOrigin: "200px 100px" }}>
+                    <path
+                      d="M200 60a26 26 0 0 1 26 26c0 19-26 46-26 46s-26-27-26-46a26 26 0 0 1 26-26z"
+                      fill="#0161dd"
+                      stroke="#fff"
+                      strokeWidth="4"
+                    />
+                    <circle cx="200" cy="86" r="9" fill="#fff" />
+                  </g>
                 </svg>
+                <div className="flex flex-wrap items-center justify-between gap-3 p-6 pt-2">
+                  <div>
+                    <p className="font-display font-bold text-ink">Find Us</p>
+                    <p className="text-sm text-muted">{site.address}</p>
+                  </div>
+                  <a
+                    href={site.directions}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-blue px-6 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:scale-105"
+                  >
+                    Get Directions
+                  </a>
+                </div>
               </div>
             </Reveal>
 

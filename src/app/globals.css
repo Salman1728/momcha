@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --blue: #1652e0;
-  --blue-deep: #0e3bb8;
-  --blue-ink: #0a2a85;
-  --blue-tint: #eaf1ff;
-  --blue-soft: #d6e4ff;
+  /* exact brand blue sampled from the MOMcha mockup */
+  --blue: #0161dd;
+  --blue-deep: #014bb0;
+  --blue-ink: #01337a;
+  --blue-tint: #e9f1ff;
+  --blue-soft: #cfe1ff;
   --cream: #fdfcf8;
   --matcha: #8dc63f;
   --matcha-deep: #5e9c2f;
-  --ink: #1c2434;
+  --ink: #16223a;
   --muted: #5b6577;
 }
 
@@ -37,6 +38,7 @@ body {
   background: var(--cream);
   color: var(--ink);
   font-family: var(--font-poppins), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -52,37 +54,66 @@ body {
   font-family: var(--font-caveat), cursive;
 }
 
-/* Glassmorphism panel */
+/* Glassmorphism */
 .glass {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(14px) saturate(1.4);
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.75);
 }
 
 .glass-blue {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px) saturate(1.2);
-  -webkit-backdrop-filter: blur(12px) saturate(1.2);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(1, 75, 176, 0.55);
+  backdrop-filter: blur(14px) saturate(1.3);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
-/* Soft shadow language */
+/* Shadow language */
 .shadow-soft {
-  box-shadow: 0 6px 24px -6px rgba(22, 82, 224, 0.14),
-    0 2px 8px -2px rgba(28, 36, 52, 0.06);
+  box-shadow: 0 6px 24px -6px rgba(1, 97, 221, 0.16),
+    0 2px 8px -2px rgba(22, 34, 58, 0.06);
 }
 
 .shadow-lift {
-  box-shadow: 0 18px 44px -12px rgba(22, 82, 224, 0.28),
-    0 4px 12px -4px rgba(28, 36, 52, 0.08);
+  box-shadow: 0 20px 48px -14px rgba(1, 75, 176, 0.38),
+    0 4px 14px -4px rgba(22, 34, 58, 0.1);
 }
 
-/* Brush-stroke section edge (paints with currentColor) */
+.shadow-photo {
+  box-shadow: 0 24px 60px -18px rgba(1, 51, 122, 0.45);
+}
+
+/* Hero photo blends into the blue backdrop */
+.hero-photo-mask {
+  -webkit-mask-image: radial-gradient(
+    ellipse 68% 70% at 50% 48%,
+    black 52%,
+    transparent 88%
+  );
+  mask-image: radial-gradient(
+    ellipse 68% 70% at 50% 48%,
+    black 52%,
+    transparent 88%
+  );
+}
+
+/* Brush edge */
 .brush-edge {
   display: block;
   width: 100%;
-  height: 44px;
+  height: 48px;
+}
+
+/* Marquee ticker */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 26s linear infinite;
 }
 
 /* Floating doodles */
@@ -96,36 +127,37 @@ body {
   50% { transform: translateY(8px) rotate(calc(var(--tilt, 0deg) - 5deg)); }
 }
 
-.animate-floaty {
-  animation: floaty 6s ease-in-out infinite;
-}
-
-.animate-floaty-alt {
-  animation: floaty-alt 7.5s ease-in-out infinite;
-}
+.animate-floaty { animation: floaty 6s ease-in-out infinite; }
+.animate-floaty-alt { animation: floaty-alt 7.5s ease-in-out infinite; }
 
 @keyframes wiggle {
   0%, 100% { transform: rotate(-3deg); }
   50% { transform: rotate(3deg); }
 }
-
-.animate-wiggle {
-  animation: wiggle 2.4s ease-in-out infinite;
-}
+.animate-wiggle { animation: wiggle 2.4s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-floaty,
-  .animate-floaty-alt,
-  .animate-wiggle {
+  .animate-floaty, .animate-floaty-alt, .animate-wiggle, .animate-marquee {
     animation: none;
   }
 }
 
-/* Hide scrollbar for the best-sellers rail */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+/* Photo cards: zoom the image on hover */
+.photo-card img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.photo-card:hover img {
+  transform: scale(1.07);
+}
+
+/* Hide scrollbar for rails */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Stylised map grid for the contact card */
+.map-grid {
+  background-image:
+    linear-gradient(rgba(1, 97, 221, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(1, 97, 221, 0.10) 1px, transparent 1px);
+  background-size: 34px 34px;
 }
