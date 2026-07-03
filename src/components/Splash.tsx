@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+import logo from "../../public/photos/logo.png";
 
 export function Splash() {
   const [show, setShow] = useState(true);
@@ -27,11 +30,24 @@ export function Splash() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-blue text-white"
         >
-          <motion.p
-            initial={{ opacity: 0, y: 18, scale: 0.96 }}
+          <motion.div
+            initial={{ opacity: 0, y: 18, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-6xl font-bold tracking-wide sm:text-7xl"
+          >
+            <Image
+              src={logo}
+              alt="MOMcha logo"
+              priority
+              sizes="128px"
+              className="h-28 w-28 rounded-full shadow-lift sm:h-32 sm:w-32"
+            />
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display mt-6 text-5xl font-bold tracking-wide sm:text-6xl"
           >
             M<span className="text-blue-soft">O</span>Mcha
           </motion.p>

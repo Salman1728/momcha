@@ -1,10 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { site } from "@/lib/menu";
+
+import logo from "../../public/photos/logo.png";
 
 const links = [
   { href: "/", label: "Home" },
@@ -42,9 +45,17 @@ export function Navbar() {
       >
         <Link
           href="/"
-          className="font-display text-2xl font-bold tracking-wide text-white transition hover:scale-105"
+          className="flex items-center gap-2.5 transition hover:scale-105"
         >
-          M<span className="text-blue-soft">O</span>Mcha
+          <Image
+            src={logo}
+            alt=""
+            sizes="36px"
+            className="h-9 w-9 rounded-full ring-2 ring-white/40"
+          />
+          <span className="font-display text-2xl font-bold tracking-wide text-white">
+            M<span className="text-blue-soft">O</span>Mcha
+          </span>
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">
