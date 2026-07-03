@@ -3,6 +3,7 @@ import { Baloo_2, Poppins, Caveat } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Splash } from "@/components/Splash";
 
 const baloo = Baloo_2({
   variable: "--font-baloo",
@@ -42,6 +43,7 @@ export default function RootLayout({
       className={`${baloo.variable} ${poppins.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <Splash />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
