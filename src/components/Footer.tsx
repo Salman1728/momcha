@@ -76,8 +76,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/15 py-5 text-center text-xs text-white/60">
-          © {new Date().getFullYear()} MOMcha. Made with love in Nairobi.
+        <div className="flex flex-col items-center gap-1 border-t border-white/15 py-5 text-center text-xs text-white/60">
+          <p>© {new Date().getFullYear()} MOMcha. Made with love in Nairobi.</p>
+          <p>
+            Powered by{" "}
+            <span className="font-display text-sm font-semibold text-white/90">
+              QuickTap
+            </span>
+          </p>
         </div>
       </div>
     </footer>
