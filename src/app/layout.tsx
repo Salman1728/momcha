@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Baloo_2, Poppins, Caveat } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Splash } from "@/components/Splash";
 
@@ -44,7 +43,6 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <Splash />
-        <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

@@ -11,7 +11,7 @@ export default function Home() {
     <div className="relative overflow-hidden">
       <DoodleField tone="text-blue/15" />
 
-      <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 pb-20 pt-32 text-center sm:pt-36">
+      <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 pb-20 pt-16 text-center sm:pt-20">
         {/* logo */}
         <Reveal>
           <Image
@@ -26,7 +26,7 @@ export default function Home() {
         {/* welcome */}
         <Reveal delay={0.1}>
           <h1 className="font-display mt-10 text-5xl font-bold text-blue sm:text-6xl">
-            Welcome to M<span className="text-matcha">O</span>Mcha
+            Welcome to MOMcha
           </h1>
           <p className="font-script mt-5 text-4xl text-ink">
             delicious drinks made with love, just for you

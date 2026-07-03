@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { menu, CURRENCY, type MenuSection } from "@/lib/menu";
+import { menu, type MenuSection } from "@/lib/menu";
 import {
   CupDoodle,
   LeafDoodle,
@@ -107,7 +107,7 @@ export function MenuExplorer() {
       </motion.div>
 
       <p className="mt-6 text-center text-sm text-muted">
-        All prices in {CURRENCY}. Add any extra or cold foam to your drink.
+        Add any extra or cold foam to your drink.
       </p>
     </div>
   );

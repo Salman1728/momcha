@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { MenuExplorer } from "@/components/MenuExplorer";
 import { CupDoodle, DoodleField, HeartDoodle, WhiskDoodle } from "@/components/Doodles";
 import { Reveal } from "@/components/Reveal";
 
+import logo from "../../../public/photos/logo.png";
 import menuMatcha from "../../../public/photos/menu-matcha.png";
 import menuWhisk from "../../../public/photos/menu-whisk.png";
 
@@ -18,7 +20,12 @@ export default function MenuPage() {
     <div className="relative overflow-hidden">
       <DoodleField tone="text-blue/10" />
 
-      <div className="relative mx-auto max-w-6xl px-6 pb-10 pt-32">
+      <div className="relative mx-auto max-w-6xl px-6 pb-10 pt-14">
+        <Reveal>
+          <Link href="/" aria-label="Back to home" className="mx-auto mb-8 block w-fit transition hover:scale-105">
+            <Image src={logo} alt="MOMcha logo" sizes="72px" className="h-[72px] w-[72px] rounded-full shadow-soft" />
+          </Link>
+        </Reveal>
         <Reveal>
           <div className="relative mx-auto w-fit text-center">
             <WhiskDoodle className="absolute -left-16 top-1 hidden w-11 text-blue/50 animate-floaty sm:block" aria-hidden />
@@ -29,7 +36,7 @@ export default function MenuPage() {
             <HeartDoodle className="absolute -right-24 -top-3 hidden w-7 text-blue/30 animate-wiggle md:block" aria-hidden />
           </div>
           <p className="mt-4 text-center text-muted">
-            Handcrafted with love — prices in Kenyan Shillings.
+            Handcrafted with love, just for you.
           </p>
         </Reveal>
 

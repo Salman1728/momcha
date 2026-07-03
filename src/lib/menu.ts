@@ -191,12 +191,11 @@ export const site = {
   phoneHref: "tel:+254700123456",
   whatsapp: "https://wa.me/254700123456",
   email: "hello@momcha.co.ke",
-  instagram: "https://instagram.com/momcha.ke",
-  tiktok: "https://tiktok.com/@momcha.ke",
-  handle: "@momcha.ke",
-  address: "123 Momcha Street, Nairobi, Kenya",
-  directions:
-    "https://www.google.com/maps/search/?api=1&query=123+Momcha+Street+Nairobi+Kenya",
+  instagram: "https://www.instagram.com/mombasamatcha/",
+  tiktok: "https://www.tiktok.com/@mombasamatcha",
+  handle: "@mombasamatcha",
+  address: "Mombasa, Kenya",
+  directions: "https://maps.app.goo.gl/vsKovLo7Uw9vJeNo8",
   hours: "Tuesday – Sunday · 11:00 AM – 11:00 PM",
   closed: "Closed on Mondays",
 };

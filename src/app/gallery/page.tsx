@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { DoodleField } from "@/components/Doodles";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/menu";
+
+import logo from "../../../public/photos/logo.png";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -14,7 +18,12 @@ export default function GalleryPage() {
     <div className="relative overflow-hidden">
       <DoodleField tone="text-blue/10" />
 
-      <div className="relative mx-auto max-w-6xl px-6 pb-8 pt-32">
+      <div className="relative mx-auto max-w-6xl px-6 pb-8 pt-14">
+        <Reveal>
+          <Link href="/" aria-label="Back to home" className="mx-auto mb-8 block w-fit transition hover:scale-105">
+            <Image src={logo} alt="MOMcha logo" sizes="72px" className="h-[72px] w-[72px] rounded-full shadow-soft" />
+          </Link>
+        </Reveal>
         <Reveal>
           <h1 className="font-script text-center text-7xl font-bold text-blue sm:text-8xl">
             Gallery 💙
