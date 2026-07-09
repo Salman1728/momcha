@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { MenuExplorer } from "@/components/MenuExplorer";
+import { getMenuSections } from "@/lib/menu-source";
 import { CupDoodle, DoodleField, HeartDoodle, WhiskDoodle } from "@/components/Doodles";
 import { Reveal } from "@/components/Reveal";
 
@@ -15,7 +16,10 @@ export const metadata: Metadata = {
     "Matcha lattes, specialty coffee, iced drinks, mojitos, waffles and more — the full MOMcha menu.",
 };
 
-export default function MenuPage() {
+export const revalidate = 300;
+
+export default async function MenuPage() {
+  const sections = await getMenuSections();
   return (
     <div className="relative overflow-hidden">
       <DoodleField tone="text-blue/10" />
@@ -40,7 +44,7 @@ export default function MenuPage() {
           </p>
         </Reveal>
 
-        <MenuExplorer />
+        <MenuExplorer sections={sections} />
       </div>
 
       {/* photos bleeding off the page corners, like the mockup */}

@@ -23,17 +23,23 @@ const icons: Record<MenuSection["icon"], typeof CupDoodle> = {
   foam: SwirlDoodle,
 };
 
-export function MenuExplorer() {
+export function MenuExplorer({
+  sections: allSections = menu,
+}: {
+  sections?: MenuSection[];
+}) {
   const [active, setActive] = useState<string>("all");
   const sections =
-    active === "all" ? menu : menu.filter((s) => s.id === active);
+    active === "all"
+      ? allSections
+      : allSections.filter((s) => s.id === active);
 
   return (
     <div className="mt-10">
       {/* filter chips in a pill tray, like the mockup */}
       <div className="no-scrollbar -mx-6 overflow-x-auto px-6 sm:mx-auto sm:w-fit sm:overflow-visible sm:px-0">
         <div className="flex w-max gap-1 rounded-full bg-white p-1.5 shadow-soft sm:w-auto sm:flex-wrap sm:justify-center">
-          {[{ id: "all", title: "All" }, ...menu].map((s) => (
+          {[{ id: "all", title: "All" }, ...allSections].map((s) => (
             <button
               key={s.id}
               onClick={() => setActive(s.id)}
@@ -73,7 +79,7 @@ export function MenuExplorer() {
                   </h2>
                 </div>
 
-                {section.id === "mojitos" && (
+                {section.title === "Mojitos" && (
                   <p className="mt-2 text-xs font-medium text-muted">
                     Regular / Large
                   </p>
